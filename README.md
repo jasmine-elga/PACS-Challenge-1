@@ -35,4 +35,4 @@ The repo uses the library ```"json.hpp"```, defined inside the ```pacs-examples`
 
 The code is tested in the main on the function:
 
-     f(x) = f(x1,x2) = x_1x_2 +4x_1^4 +x_2^2 + 3x_1.
+    $ f(x) = f(x1,x2) = x_1x_2 +4x_1^4 +x_2^2 + 3x_1$

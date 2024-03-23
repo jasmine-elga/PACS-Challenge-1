@@ -3,7 +3,7 @@
 This repository contains an implementation of the gradient descent algorithm. 
 
 
-The optimization parameters and the starting point are stored inside the ```data.json``` file:
+The optimization parameters and the starting point are stored inside the ```data.json``` file that can be modified:
 
 ```
 {

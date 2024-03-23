@@ -29,9 +29,10 @@ The strategy for the computation of the learning method can be chosen by the use
 For that purpose, a function template with an enumerator as a template parameter is implemented.
 
 The function to minimize and its gradient are defined and can be modified in ```main.cpp```. 
+
 The user can also decide from standard input whether to use the exact gradient or its approximation via central differences. 
 
-The repo uses the library ```"json.hpp"```, defined inside the ```pacs-examples``` repository of the course.
+The repository employes the library ```"json.hpp"```, defined inside the ```pacs-examples``` repository of the course.
 
 The code is tested in the main on the function:
 

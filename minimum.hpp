@@ -31,6 +31,7 @@ enum class Strategy{
 };
 
 
+
 // Template function the minimum of a multivariate function 
 template<Strategy S>
 std::vector<double> computeMinimum(const func_t &, const grad_t &, const Params&); 
@@ -47,9 +48,9 @@ double ExponentialDecay(const Params& params, int k);
 double InverseDecay(const Params &, int);
 
 
-
-//grad_t FiniteDifferences(const func_t &f);
-
+// Compute approximation of gradient via centered differences
+std::vector<double> CenteredDifferences(double h, const func_t& f, const std::vector<double>& x);
+ 
 
 // Compute the power (taken from lab, as std::pow() is expensive)
 double pow_integer(double base, int exp); 

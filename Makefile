@@ -1,6 +1,6 @@
 CXX      ?= g++
 CXXFLAGS ?= -std=c++20
-LINK.o := $(LINK.cc) # Use C++ linker (for implicit rule in line 25).
+LINK.o := $(LINK.cc) 
 
 CPPFLAGS += -O3 -Wall -I. -I../pacs-examples/Examples/include
 LDLIBS += -L../pacs-examples/Examples/lib -Wl,-rpath=../pacs-examples/Examples/lib -lpacs

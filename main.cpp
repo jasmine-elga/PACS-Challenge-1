@@ -48,16 +48,42 @@ int main(){
         return x[0] * x[1] +  4 * pow_integer(x[0],4)  +  pow_integer(x[1],2) + 3 * x[0];
     };
 
-    //Define gradient
-    grad_t grad_func = [](const std::vector<double>& x) {
-        return std::vector<double>{x[1] + 16 * pow_integer(x[0],3) + 3, x[0] + 2 * x[1]};
-    };
 
+    // Define gradient function based on chosen method
+    grad_t grad_func;
+        // Make user choose strategy from 
+
+    int choice = 1;
+    std::cout << "Choose gradient:" << std::endl;
+    std::cout << "1: Exact gradient" << std::endl;
+    std::cout << "2: Centered differences approximation" << std::endl;
+    std::cin >> choice;
+
+
+
+    switch(choice) {
+        case 1: 
+            std::cout << "You've choosen the exact gradient.\n" << std::endl;
+            grad_func = [](const std::vector<double>& x) {
+                return std::vector<double>{x[1] + 16 * pow_integer(x[0],3) + 3, x[0] + 2 * x[1]};
+            };
+            break;
+        case 2:
+            std::cout << "You've choosen the gradient approximation with CD.\n" << std::endl;
+            grad_func = [&func, &params](const std::vector<double>& x) {
+                return CenteredDifferences(params.h, func, x);
+            };
+            break;
+        default:
+            std::cerr << "Invalid choice!"<<std::endl;
+            return 1;
+    }
+    
 
     std::vector<double> minimum; // vector where the solution will be stored
 
     // Make user choose strategy from 
-    int choice = 1;
+    choice = 1;
     std::cout << "Choose optimization strategy:" << std::endl;
     std::cout << "1: Armijo Rule" << std::endl;
     std::cout << "2: Exponential Decay" << std::endl;

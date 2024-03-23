@@ -10,7 +10,6 @@ std::vector<double> computeMinimum(const func_t & f, const grad_t & gradient, co
                                     bool converged = false;
                                     double alpha;
 
-                                    std::cout<<"mu"<<params.mu<<std::endl;
 
                                     do{
                                         ++k; // increase number of iterations
@@ -27,10 +26,8 @@ std::vector<double> computeMinimum(const func_t & f, const grad_t & gradient, co
                                             std::cout << "INVALID STRATEGY!" << std::endl;
                                             return current;
                                         }
-        
                                         current = current - alpha*gradient(current);
                                         converged = (vectorNorm(current-previous) < params.eps_s) || (vectorNorm(gradient(current)) < params.eps_r); // convergence criteria
-                                        std::cout << "iteration "<< k << " current = (" << current[0] << ", " << current[1] << ")" << std::endl; 
                                     }
                                     while((!converged) && (k<=params.maxIterations));
                                     if (k<params.maxIterations){
@@ -53,21 +50,23 @@ template std::vector<double> computeMinimum<Strategy::InverseDecay>(const func_t
 
 
 
-/*
-std::vector<double> CenteredDifferences(const Data& data, func_t f, grad_t grad, const std::vector<double>&x){
-    // dimension of the space
-    std::vector<double> grad{0, n} ;
-    for (size_t i=0; i<x.size; ++i){
+// Compute approximation of gradient via centered differences
+std::vector<double> CenteredDifferences(double h, const func_t& f, const std::vector<double>& x) {
+    // Dimension of the space
+    std::vector<double> gradient(x.size());
+
+    for (size_t i = 0; i < x.size(); ++i) {
         std::vector<double> x_plus = x;
         std::vector<double> x_minus = x;
-        x_plus[i]-= h
-        x_minus[i]+= h;
+        x_plus[i] += h;
+        x_minus[i] -= h;
 
-        gradient[i] = (f(x_plus)-f(x_minus))/(2*h);
+        gradient[i] = (f(x_plus) - f(x_minus)) / (2 * h);
     }
     return gradient;
 }
-*/
+
+
     
 
 // Compute alpha according to exponential decay strategy

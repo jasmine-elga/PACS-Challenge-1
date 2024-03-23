@@ -21,9 +21,9 @@ The optimization parameters and the starting point are stored inside the [data.j
 ```
 
 The strategy for the computation of the learning method can be chosen by the user from ```std::cin```, between:
-*     Armijo rule
-*     Exponential Decay
-*     Inverse Decay
+* Armijo rule
+* Exponential Decay
+* Inverse Decay
 
 For that purpose, a function template with an enumerator as a template parameter is implemented.
 

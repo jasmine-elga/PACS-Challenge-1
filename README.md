@@ -20,8 +20,8 @@ The optimization parameters and the starting point are stored inside the [data.j
 
 ```
 
-The strategy for the computation of the learning method can be chosen by the user from [std::cin], between:
-* Armijo rule
+The strategy for the computation of the learning method can be chosen by the user from ```std::cin```, between:
+é Armijo rule
 * Exponential Decay
 * Inverse Decay
 

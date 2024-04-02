@@ -1,0 +1,15 @@
+README could be a bit improved in the esthetics.
+
+- use sections to divide the introduction to the argument (Gradient Descent Implementation)
+- an installation section is missing. I would have expected you to tell me what to change inside the makefile to make it work.
+- a clear description on how to run a test is missing.
+
+
+About the overall code implementation:
+
+- I would have expected the function to be read from the JSON file. This allows you to more flexebility at run time, while here you are relying on the definiton of the function at compile time.
+
+- Since you decided to define the methods at run time, I would have added them as options in the JSON file.
+- In your implementation, unfortunetly muParser is missing.
+
+Code is well written and overall clear.
